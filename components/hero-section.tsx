@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FileDown, Mail, PanelsTopLeft } from "lucide-react";
 import { profileHighlights } from "@/data/portfolio";
+import { HeroPortrait } from "@/components/hero-portrait";
 import { OrbitField } from "@/components/ui/orbit-field";
 import { PremiumButton } from "@/components/ui/premium-button";
 
@@ -96,40 +97,7 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        <motion.div
-          className="relative mx-auto w-full max-w-[480px] lg:ml-auto"
-          initial={{ opacity: 0, scale: 0.96, y: 24 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <div className="absolute -left-8 top-12 h-32 w-32 rounded-full bg-cyan/20 blur-3xl" />
-          <div className="absolute -right-10 bottom-10 h-40 w-40 rounded-full bg-violet/[0.18] blur-3xl" />
-
-          <motion.div
-            className="premium-border glass relative overflow-hidden rounded-3xl p-5"
-            whileHover={{ y: -8, rotateX: 2, rotateY: -2 }}
-            transition={{ type: "spring", stiffness: 260, damping: 24 }}
-          >
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/70 bg-gradient-to-br from-white via-pearl to-silver">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_38%_24%,rgba(121,184,255,0.28),transparent_30%),radial-gradient(circle_at_78%_64%,rgba(156,228,211,0.20),transparent_32%)]" />
-              <motion.div
-                className="absolute left-1/2 top-[22%] h-32 w-32 -translate-x-1/2 rounded-full border border-white/80 bg-white/[0.65] shadow-premium backdrop-blur-xl sm:h-36 sm:w-36"
-                animate={{ y: [0, -9, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <motion.div
-                className="absolute bottom-[-8%] left-1/2 h-64 w-64 -translate-x-1/2 rounded-[42%] border border-white/80 bg-white/[0.55] shadow-premium backdrop-blur-xl sm:h-72 sm:w-72"
-                animate={{ y: [0, 7, 0] }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <div className="absolute bottom-6 left-1/2 w-fit -translate-x-1/2 rounded-2xl border border-white/70 bg-white/70 px-5 py-3 shadow-premium backdrop-blur-xl">
-                <p className="whitespace-nowrap text-sm font-semibold text-graphite">
-                  Michael Dominiecki
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
+        <HeroPortrait />
       </div>
     </section>
   );
