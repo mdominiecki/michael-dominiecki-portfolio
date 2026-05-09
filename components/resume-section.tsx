@@ -28,11 +28,11 @@ export function ResumeSection() {
             </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <PremiumButton href="/resume-michael-dominiecki.html" variant="dark" download>
+              <PremiumButton href="/michael-dominiecki-resume.pdf" variant="dark" download>
                 <Download size={17} aria-hidden="true" />
                 Download
               </PremiumButton>
-              <PremiumButton href="/resume-michael-dominiecki.html" variant="light" target="_blank">
+              <PremiumButton href="/michael-dominiecki-resume.pdf" variant="light" target="_blank" rel="noreferrer">
                 <ExternalLink size={17} aria-hidden="true" />
                 Open Preview
               </PremiumButton>

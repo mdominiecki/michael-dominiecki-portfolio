@@ -64,7 +64,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
           >
-            <PremiumButton href="#resume">
+            <PremiumButton href="/michael-dominiecki-resume.pdf" target="_blank" rel="noreferrer">
               <FileDown size={17} aria-hidden="true" />
               View Resume
             </PremiumButton>
