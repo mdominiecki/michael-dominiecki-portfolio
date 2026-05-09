@@ -26,10 +26,10 @@ export const navItems = [
 ];
 
 export const profileHighlights = [
-  "Marketing strategy",
-  "Product thinking",
-  "Brand systems",
-  "Business development"
+  "Marketing Strategy",
+  "Problem Solver",
+  "Quick Learner",
+  "Clear Communicator"
 ];
 
 export const experienceItems = [

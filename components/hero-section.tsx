@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, FileDown, Mail, PanelsTopLeft } from "lucide-react";
+import { FileDown, Mail, PanelsTopLeft } from "lucide-react";
 import { profileHighlights } from "@/data/portfolio";
 import { OrbitField } from "@/components/ui/orbit-field";
 import { PremiumButton } from "@/components/ui/premium-button";
@@ -45,7 +45,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
           >
-            Business Marketing Student | Aspiring Product & Brand Strategist
+            Interested in branding, tech, and design.
           </motion.p>
 
           <motion.p
@@ -54,8 +54,9 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
           >
-            I connect marketing strategy, brand clarity, and product thinking to help ideas feel
-            sharper, more useful, and easier to believe in.
+            I’m a Business Marketing student at Kennesaw State University with an interest in
+            branding, technology, and modern digital experiences. I enjoy building things that feel
+            clean, thoughtful, and easy to connect with.
           </motion.p>
 
           <motion.div
@@ -121,14 +122,10 @@ export function HeroSection() {
                 animate={{ y: [0, 7, 0] }}
                 transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
               />
-              <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/70 bg-white/70 p-4 shadow-premium backdrop-blur-xl">
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <p className="text-sm font-semibold text-graphite">Strategic profile</p>
-                    <p className="mt-1 text-sm text-muted">Marketing + product + brand</p>
-                  </div>
-                  <ArrowRight className="text-electric" size={20} aria-hidden="true" />
-                </div>
+              <div className="absolute bottom-6 left-1/2 w-fit -translate-x-1/2 rounded-2xl border border-white/70 bg-white/70 px-5 py-3 shadow-premium backdrop-blur-xl">
+                <p className="whitespace-nowrap text-sm font-semibold text-graphite">
+                  Michael Dominiecki
+                </p>
               </div>
             </div>
           </motion.div>
