@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        porcelain: "#f8f8f6",
-        pearl: "#efefec",
+        porcelain: "#f7f3ea",
+        pearl: "#eee8dc",
         silver: "#d8dadd",
         graphite: "#17181a",
         ink: "#232529",
