@@ -2,11 +2,33 @@
 
 import { motion } from "framer-motion";
 import { Linkedin, Mail, Send } from "lucide-react";
+import { FormEvent, useState } from "react";
 import { AnimatedSection } from "@/components/animated-section";
 import { SectionHeading } from "@/components/section-heading";
 import { PremiumButton } from "@/components/ui/premium-button";
 
 export function ContactSection() {
+  const [status, setStatus] = useState("Messages are delivered through Netlify Forms.");
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus("Sending...");
+
+    const formData = new FormData(event.currentTarget);
+
+    try {
+      await fetch("/__forms.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as unknown as Record<string, string>).toString()
+      });
+
+      window.location.href = "/thank-you";
+    } catch {
+      setStatus("Something went wrong. Please try again or email me directly.");
+    }
+  };
+
   return (
     <AnimatedSection id="contact" className="relative pb-16 pt-24 sm:pb-20 sm:pt-28">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-graphite/10 to-transparent" />
@@ -39,10 +61,7 @@ export function ContactSection() {
 
           <motion.form
             name="contact"
-            method="POST"
-            action="/thank-you"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
             className="premium-border glass rounded-3xl p-5 sm:p-6"
             whileHover={{ y: -5 }}
             transition={{ type: "spring", stiffness: 220, damping: 24 }}
@@ -87,7 +106,7 @@ export function ContactSection() {
             </label>
 
             <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm text-muted">Messages are delivered through Netlify Forms.</p>
+              <p className="text-sm text-muted">{status}</p>
               <button className="group relative inline-flex min-h-12 items-center justify-center gap-2 overflow-hidden rounded-2xl border border-graphite/10 bg-graphite px-5 py-3 text-sm font-semibold text-white shadow-premium transition duration-300 hover:border-electric/50 hover:shadow-glow">
                 <span className="absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-white/[0.35] to-transparent transition duration-700 group-hover:translate-x-[120%]" />
                 <span className="relative z-10 inline-flex items-center gap-2">
