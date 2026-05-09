@@ -2,19 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Linkedin, Mail, Send } from "lucide-react";
-import { FormEvent, useState } from "react";
 import { AnimatedSection } from "@/components/animated-section";
 import { SectionHeading } from "@/components/section-heading";
 import { PremiumButton } from "@/components/ui/premium-button";
 
 export function ContactSection() {
-  const [status, setStatus] = useState("Ready when you are.");
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setStatus("Thanks. Your note is ready.");
-  };
-
   return (
     <AnimatedSection id="contact" className="relative pb-16 pt-24 sm:pb-20 sm:pt-28">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-graphite/10 to-transparent" />
@@ -46,15 +38,26 @@ export function ContactSection() {
           </div>
 
           <motion.form
-            onSubmit={handleSubmit}
+            name="contact"
+            method="POST"
+            action="/thank-you"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
             className="premium-border glass rounded-3xl p-5 sm:p-6"
             whileHover={{ y: -5 }}
             transition={{ type: "spring", stiffness: 220, damping: 24 }}
           >
+            <input type="hidden" name="form-name" value="contact" />
+            <p className="hidden">
+              <label>
+                Don’t fill this out if you’re human: <input name="bot-field" />
+              </label>
+            </p>
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="block">
                 <span className="text-sm font-medium text-muted">Name</span>
                 <input
+                  name="name"
                   required
                   className="mt-2 h-12 w-full rounded-2xl border border-graphite/10 bg-white/[0.72] px-4 text-graphite outline-none transition duration-300 placeholder:text-muted/60 focus:border-electric/[0.55] focus:shadow-glow"
                   placeholder="Your name"
@@ -63,6 +66,7 @@ export function ContactSection() {
               <label className="block">
                 <span className="text-sm font-medium text-muted">Email</span>
                 <input
+                  name="email"
                   required
                   type="email"
                   className="mt-2 h-12 w-full rounded-2xl border border-graphite/10 bg-white/[0.72] px-4 text-graphite outline-none transition duration-300 placeholder:text-muted/60 focus:border-electric/[0.55] focus:shadow-glow"
@@ -74,6 +78,7 @@ export function ContactSection() {
             <label className="mt-4 block">
               <span className="text-sm font-medium text-muted">Message</span>
               <textarea
+                name="message"
                 required
                 rows={6}
                 className="mt-2 w-full resize-none rounded-2xl border border-graphite/10 bg-white/[0.72] px-4 py-4 text-graphite outline-none transition duration-300 placeholder:text-muted/60 focus:border-electric/[0.55] focus:shadow-glow"
@@ -82,7 +87,7 @@ export function ContactSection() {
             </label>
 
             <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm text-muted">{status}</p>
+              <p className="text-sm text-muted">Messages are delivered through Netlify Forms.</p>
               <button className="group relative inline-flex min-h-12 items-center justify-center gap-2 overflow-hidden rounded-2xl border border-graphite/10 bg-graphite px-5 py-3 text-sm font-semibold text-white shadow-premium transition duration-300 hover:border-electric/50 hover:shadow-glow">
                 <span className="absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-white/[0.35] to-transparent transition duration-700 group-hover:translate-x-[120%]" />
                 <span className="relative z-10 inline-flex items-center gap-2">
