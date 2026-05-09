@@ -15,37 +15,37 @@ const orbitBadges = [
   {
     label: "Figma",
     icon: Figma,
-    position: "left-[47%] top-[12%]",
+    position: "left-[30%] top-[19%]",
     accent: "from-violet/30 to-electric/20"
   },
   {
     label: "Canva",
     icon: Palette,
-    position: "left-[72%] top-[22%]",
+    position: "left-[74%] top-[28%]",
     accent: "from-teal/30 to-cyan/20"
   },
   {
     label: "Adobe",
     icon: PenTool,
-    position: "left-[35%] top-[31%]",
+    position: "left-[23%] top-[37%]",
     accent: "from-violet/25 to-teal/20"
   },
   {
     label: "Excel",
     icon: BarChart3,
-    position: "left-[77%] top-[42%]",
+    position: "left-[80%] top-[46%]",
     accent: "from-cyan/30 to-electric/20"
   },
   {
     label: "Slides",
     icon: Presentation,
-    position: "left-[40%] top-[54%]",
+    position: "left-[31%] top-[56%]",
     accent: "from-electric/25 to-violet/20"
   },
   {
     label: "Strategy",
     icon: BriefcaseBusiness,
-    position: "left-[60%] top-[5%]",
+    position: "left-[58%] top-[12%]",
     accent: "from-teal/25 to-violet/20"
   }
 ];
@@ -77,16 +77,17 @@ export function HeroPortrait() {
 
   return (
     <motion.div
-      className="relative mx-auto w-full max-w-[540px] lg:ml-auto"
-      initial={{ opacity: 0, scale: 0.96, y: 24 }}
+      className="relative z-20 mx-auto grid w-full max-w-[min(84vw,560px)] place-items-center"
+      initial={{ opacity: 0, scale: 0.96, y: 28 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.9, delay: 0.2, ease: premiumEase }}
     >
-      <div className="absolute -left-10 top-16 h-36 w-36 rounded-full bg-cyan/20 blur-3xl" />
-      <div className="absolute -right-10 bottom-16 h-44 w-44 rounded-full bg-violet/[0.18] blur-3xl" />
+      <div className="absolute left-1/2 top-1/2 h-[72%] w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/65 blur-3xl" />
+      <div className="absolute left-1/2 top-[30%] h-48 w-48 -translate-x-1/2 rounded-full bg-cyan/20 blur-3xl" />
+      <div className="absolute bottom-8 left-1/2 h-24 w-[72%] -translate-x-1/2 rounded-full bg-graphite/10 blur-2xl" />
 
       <motion.div
-        className="premium-border glass relative overflow-hidden rounded-3xl p-4"
+        className="relative h-[58vh] min-h-[430px] w-full outline-none sm:h-[66vh] sm:min-h-[560px] lg:h-[70vh]"
         initial={false}
         animate={isActive ? "hover" : "rest"}
         onMouseEnter={() => setIsActive(true)}
@@ -98,60 +99,45 @@ export function HeroPortrait() {
         transition={{ type: "spring", stiffness: 260, damping: 24 }}
         variants={{
           rest: { y: 0, rotateX: 0, rotateY: 0 },
-          hover: { y: -8, rotateX: 2, rotateY: -2 }
+          hover: { y: -10, rotateX: 1.5, rotateY: -1.5 }
         }}
       >
-        <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/70 bg-gradient-to-br from-white via-pearl to-silver">
-          <motion.img
-            src="/hero-test-photo.svg"
-            alt="Michael Dominiecki"
-            className="h-full w-full object-contain object-bottom"
-            animate={isActive ? "hover" : "rest"}
-            variants={{
-              rest: { scale: 1 },
-              hover: {
-                scale: 1.035,
-                transition: { duration: 0.75, ease: premiumEase }
-              }
-            }}
-          />
+        <motion.img
+          src="/hero-test-photo.svg"
+          alt="Michael Dominiecki"
+          className="relative z-10 h-full w-full select-none object-contain object-bottom drop-shadow-[0_42px_80px_rgba(23,24,26,0.22)]"
+          animate={isActive ? "hover" : "rest"}
+          draggable={false}
+          variants={{
+            rest: { scale: 1 },
+            hover: {
+              scale: 1.035,
+              transition: { duration: 0.75, ease: premiumEase }
+            }
+          }}
+        />
 
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_62%_26%,rgba(255,255,255,0.18),transparent_24%),linear-gradient(180deg,transparent_54%,rgba(23,24,26,0.32))]" />
+        {orbitBadges.map((badge, index) => {
+          const Icon = badge.icon;
 
-          {orbitBadges.map((badge, index) => {
-            const Icon = badge.icon;
-
-            return (
-              <motion.div
-                key={badge.label}
-                custom={index}
-                variants={badgeVariants}
-                animate={isActive ? "hover" : "rest"}
-                className={`pointer-events-none absolute z-20 -translate-x-1/2 rounded-2xl border border-white/70 bg-white/[0.72] px-3 py-2 shadow-premium backdrop-blur-xl ${badge.position}`}
+          return (
+            <motion.div
+              key={badge.label}
+              custom={index}
+              variants={badgeVariants}
+              animate={isActive ? "hover" : "rest"}
+              className={`pointer-events-none absolute z-30 -translate-x-1/2 rounded-2xl border border-white/80 bg-white/[0.76] px-3 py-2 shadow-premium backdrop-blur-xl ${badge.position}`}
+            >
+              <span
+                className={`flex items-center gap-2 rounded-xl bg-gradient-to-r ${badge.accent} px-2.5 py-1.5 text-xs font-semibold text-graphite`}
               >
-                <span
-                  className={`flex items-center gap-2 rounded-xl bg-gradient-to-r ${badge.accent} px-2.5 py-1.5 text-xs font-semibold text-graphite`}
-                >
-                  <Icon size={14} aria-hidden="true" />
-                  {badge.label}
-                </span>
-              </motion.div>
-            );
-          })}
+                <Icon size={14} aria-hidden="true" />
+                {badge.label}
+              </span>
+            </motion.div>
+          );
+        })}
 
-          <motion.div
-            className="absolute bottom-5 left-1/2 z-20 w-fit -translate-x-1/2 rounded-2xl border border-white/70 bg-white/75 px-5 py-3 shadow-premium backdrop-blur-xl"
-            animate={isActive ? "hover" : "rest"}
-            variants={{
-              rest: { y: 0, opacity: 0.92 },
-              hover: { y: -4, opacity: 1 }
-            }}
-          >
-            <p className="whitespace-nowrap text-sm font-semibold text-graphite">
-              Michael Dominiecki
-            </p>
-          </motion.div>
-        </div>
       </motion.div>
     </motion.div>
   );

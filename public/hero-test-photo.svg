@@ -20,8 +20,6 @@
       <feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#17181a" flood-opacity=".22"/>
     </filter>
   </defs>
-  <rect width="900" height="1200" fill="url(#wall)"/>
-  <rect width="900" height="1200" fill="url(#glow)"/>
   <circle cx="632" cy="294" r="122" fill="#f3c6aa" filter="url(#softShadow)"/>
   <path d="M516 268c32-84 138-98 204-48 31 23 51 58 52 95-42-30-84-39-126-31-34 7-76 3-130-16Z" fill="#b88458"/>
   <rect x="517" y="333" width="236" height="46" rx="20" fill="#24262c" opacity=".92"/>
