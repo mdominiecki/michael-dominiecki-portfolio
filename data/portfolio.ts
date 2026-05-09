@@ -21,7 +21,7 @@ export const navItems = [
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
-  { label: "Resume", href: "/michael-dominiecki-resume.pdf" },
+  { label: "Resume", href: "#resume" },
   { label: "Contact", href: "#contact" }
 ];
 
