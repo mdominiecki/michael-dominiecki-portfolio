@@ -445,6 +445,28 @@ function ContactSection() {
 }
 
 export default function App() {
+  const isThankYouPage = window.location.pathname === "/thank-you";
+
+  if (isThankYouPage) {
+    return (
+      <div className="grid min-h-screen place-items-center px-5 text-center">
+        <div className="max-w-xl rounded-[1.6rem] border border-white/70 bg-white/60 p-8 shadow-[0_26px_80px_rgba(23,24,26,0.08)] backdrop-blur-2xl">
+          <p className="text-xs font-black uppercase tracking-[0.22em] text-muted">Message Sent</p>
+          <h1 className="mt-4 font-serif text-5xl font-semibold text-graphite">Thank you.</h1>
+          <p className="mt-5 text-base leading-8 text-muted">
+            Your message was sent successfully. I’ll get back to you soon.
+          </p>
+          <a
+            href="/"
+            className="mt-7 inline-flex rounded-full bg-graphite px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-1"
+          >
+            Back to Home
+          </a>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen overflow-x-hidden text-graphite">
       <TopNav />
